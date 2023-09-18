@@ -3,7 +3,7 @@ const path = require('path');
 
 const getAllProducts = (req,res) => {
     
-    const ruta = path.join(__dirname,'../../views/products.ejs')
+    const ruta = path.join(__dirname,'../../views/products.ejs');
     console.log(ruta);
     res.render(ruta,{allProducts: products})
     //res.send(products);
