@@ -15,6 +15,9 @@
             <p>Price: <%= allProducts[i].price %></p>
             <p>Description:</p>
             <p><%= allProducts[i].description %></p>
+            <form action="/product/delete/<%= allProducts[i].id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
         </div>
     <%}%>
 </body>
