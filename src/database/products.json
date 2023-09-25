@@ -145,5 +145,12 @@
         "price": "787898",
         "description": "sadasdasads",
         "image": ""
+    },
+    {
+        "id": 23,
+        "title": "nuevo con multer",
+        "price": "4254858",
+        "description": "",
+        "image": "1695683707857_product.jpg"
     }
 ]

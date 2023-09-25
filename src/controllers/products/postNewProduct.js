@@ -4,8 +4,9 @@ const path = require('path');
 
 const postNewProduct = (req,res) => {
     //res.send(req.body);
-    const { title, price, description, image } = req.body;
+    const { title, price, description } = req.body;
 
+    //console.log(req.file);
     // const largoArray = products.length - 1;
     // const id = products[largoArray].id;
 
@@ -18,7 +19,7 @@ const postNewProduct = (req,res) => {
         title,
         price,
         description,
-        image
+        image: req.file ? req.file.filename : ''
     };
     
     products.push(newProduct);

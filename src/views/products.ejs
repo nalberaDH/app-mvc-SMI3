@@ -11,7 +11,11 @@
     <% for(let i=0; i < allProducts.length; i++){%>
         <div class="products_container">
             <h3>Title: <%= allProducts[i].title %></h3>
-            <img src="<%= allProducts[i].image %>" alt="img" width="300px" height="300px">
+            <%if(allProducts[i].image.includes('http')){%>
+                <img src="<%= allProducts[i].image %>" alt="img" width="300px" height="300px">
+            <%}else{%>
+                <img src="/img/products/<%= allProducts[i].image %>" alt="img" width="300px" height="300px">
+            <%}%>
             <p>Price: <%= allProducts[i].price %></p>
             <p>Description:</p>
             <p><%= allProducts[i].description %></p>
