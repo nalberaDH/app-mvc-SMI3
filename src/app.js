@@ -18,6 +18,7 @@ server.use(express.static(path.join(__dirname,'../public')));
 server.use(express.urlencoded({extended: false}));
 server.use(express.json());
 
+
 //reconoce put y delete como tal
 server.use(methodOverride('_method'));
 
@@ -26,4 +27,10 @@ server.get('/', (req,res) => res.sendFile(path.join(__dirname,'../public/html/la
 server.use(userRoutes);
 server.use(productRoutes);
 
+//middleware de error
+server.use((req,res,next) => {
+    //res.send('Recurso no encontrado');
+    res.render(path.join(__dirname,'./views/404notfound'), {message: 'Recurso no encontrado'});
+    next();
+})
 module.exports = server;
