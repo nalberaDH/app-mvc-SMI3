@@ -1,11 +1,37 @@
 const express = require('express');
+const { body } = require('express-validator');
+const path = require('path');
 
 const router = express.Router();
 
-const { getAllUsers, getUserById } = require('../controllers/users');
+const { getAllUsers, getUserById, login, register, postLogin, postRegister } = require('../controllers/users');
+
+const validateLogin = [
+    body('email').isEmail().withMessage('Invalid mail'),
+    body('password').notEmpty().withMessage('Enter a password')
+];
+
+const validateRegister = [
+    body('email').isEmail().withMessage('Invalid mail'),
+    body('password').notEmpty().withMessage('Enter a password'),
+];
+
 
 router.get('/users', getAllUsers);
-router.get('/users/:id', getUserById);
+router.get('/users/:id', getUserById)
 
+router.get('/login', login);
+router.get('/register', register);
+
+router.post('/login',validateLogin, postLogin);
+router.post('/register', validateRegister, postRegister);
+
+
+router.get('/profile', (req,res) => {
+    res.render(path.join(__dirname,'../views/userprofile'),{
+        user: req.session.userLogged
+    })
+    //res.send(req.session.userLogged)
+})
 
 module.exports = router;

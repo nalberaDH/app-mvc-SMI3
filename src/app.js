@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 var methodOverride = require('method-override');
 
+const session = require('express-session');
+
 const path = require('path');
 
 const userRoutes = require('./routes/userRoutes');
@@ -17,6 +19,14 @@ server.use(express.static(path.join(__dirname,'../public')));
 //manejar data desde un formulario html
 server.use(express.urlencoded({extended: false}));
 server.use(express.json());
+
+//configuración desession
+server.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false
+}));
+
 
 
 //reconoce put y delete como tal

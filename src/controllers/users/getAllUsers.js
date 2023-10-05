@@ -3,8 +3,8 @@ const users = require('../../database/users.json');
 const infoUsers = users.map((user) => {
     return {
         id: user.id,
-        firstName: user.name.firstname,
-        lastName: user.name.lastname,
+        firstName: user.firstname,
+        lastName: user.lastname,
         email: user.email,
         phone: user.phone
     }
