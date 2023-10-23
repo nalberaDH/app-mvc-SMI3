@@ -1,5 +1,5 @@
-const users = require('../../database/users.json');
 const path = require('path');
+
 //req: request res: response
 const getUserById = (req,res) => {
     
@@ -7,9 +7,8 @@ const getUserById = (req,res) => {
 
     const { id } = req.params;
     
-    const user = users.find((user) => user.id == id);
 
-    if(!user){
+    /*if(!user){
         //return res.send('User not found');
         ruta = path.join(__dirname,'../../views/404notfound');
         return res.render(ruta, {message: 'User not found'});
@@ -21,11 +20,11 @@ const getUserById = (req,res) => {
         lastName: user.name.lastname,
         email: user.email,
         phone: user.phone
-    }
+    }*/
 
    
     
-    res.render(ruta,{ user: infoUser });
+    //res.render(ruta,{ user: infoUser });
     
     //res.send(infoUser)
 }

@@ -1,6 +1,5 @@
-const users = require('../../database/users.json');
 
-const infoUsers = users.map((user) => {
+/*const infoUsers = users.map((user) => {
     return {
         id: user.id,
         firstName: user.firstname,
@@ -8,10 +7,10 @@ const infoUsers = users.map((user) => {
         email: user.email,
         phone: user.phone
     }
-})
+})*/
 
 const getAllUsers = (req,res) => {
-    res.send(infoUsers);
+   // res.send(infoUsers);
 }
 
 module.exports = getAllUsers;

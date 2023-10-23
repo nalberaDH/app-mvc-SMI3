@@ -1,4 +1,4 @@
-const users = require('../../database/users.json');
+
 const path = require('path');
 const { validationResult } = require('express-validator');
 const bycryptjs = require('bcryptjs');
@@ -14,9 +14,9 @@ const postLogin = (req,res) => {
     if(errors.isEmpty()){
         //res.send(req.body);
 
-        const userLogin = users.find((user) => user.email == email);
+        //const userLogin = users.find((user) => user.email == email);
 
-        if(userLogin){
+        /*if(userLogin){
             const pwd = bycryptjs.compareSync(password,userLogin.password);
 
             if(pwd){
@@ -26,7 +26,7 @@ const postLogin = (req,res) => {
             }else{
                 return res.send('Usuario o contraseña incorrecta')
             }
-        }
+        }*/
         res.send('Usuario o contraseña incorrecta')
     }else{
         const form = path.join(__dirname,'../../views/login');
