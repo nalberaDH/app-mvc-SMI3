@@ -4,6 +4,7 @@ const login = require('./login');
 const register = require('./register');
 const postLogin = require('./postLogin');
 const postRegister = require('./postRegister');
+const getUserByMail = require('./getUserByMail');
 
 module.exports = {
     getAllUsers,
@@ -11,5 +12,6 @@ module.exports = {
     login,
     register,
     postLogin,
-    postRegister
+    postRegister,
+    getUserByMail
 }

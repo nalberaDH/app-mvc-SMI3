@@ -12,6 +12,11 @@
             <label for="">Title</label>
             <input type="text" name="title" id="" value="<%= product.title%>">
         </div>
+        <%if(product.image.includes('http')){%>
+            <img src="<%= product.image %>" alt="img" width="300px" height="300px">
+        <%}else{%>
+            <img src="/img/products/<%= product.image %>" alt="img" width="300px" height="300px">
+        <%}%>
         <div>
             <label for="">Price</label>
             <input type="text" name="price" id="" value="<%= product.price%>">

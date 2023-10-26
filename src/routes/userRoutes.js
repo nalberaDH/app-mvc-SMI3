@@ -4,7 +4,7 @@ const path = require('path');
 
 const router = express.Router();
 
-const { getAllUsers, getUserById, login, register, postLogin, postRegister } = require('../controllers/users');
+const { getAllUsers, getUserById, login, register, postLogin, postRegister, getUserByMail } = require('../controllers/users');
 
 const validateLogin = [
     body('email').isEmail().withMessage('Invalid mail'),
@@ -19,6 +19,8 @@ const validateRegister = [
 
 router.get('/users', getAllUsers);
 router.get('/users/:id', getUserById)
+
+router.get('/user', getUserByMail);
 
 router.get('/login', login);
 router.get('/register', register);
