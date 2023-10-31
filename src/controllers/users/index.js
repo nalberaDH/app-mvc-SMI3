@@ -5,6 +5,8 @@ const register = require('./register');
 const postLogin = require('./postLogin');
 const postRegister = require('./postRegister');
 const getUserByMail = require('./getUserByMail');
+const modify = require('./modify');
+const confirmModify = require('./confirmModify');
 
 module.exports = {
     getAllUsers,
@@ -13,5 +15,7 @@ module.exports = {
     register,
     postLogin,
     postRegister,
-    getUserByMail
+    getUserByMail,
+    modify,
+    confirmModify
 }

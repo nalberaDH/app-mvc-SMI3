@@ -4,7 +4,17 @@ const path = require('path');
 
 const router = express.Router();
 
-const { getAllUsers, getUserById, login, register, postLogin, postRegister, getUserByMail } = require('../controllers/users');
+const { 
+    getAllUsers,
+    getUserById,
+    login,
+    register,
+    postLogin,
+    postRegister,
+    getUserByMail,
+    modify,
+    confirmModify
+ } = require('../controllers/users');
 
 const validateLogin = [
     body('email').isEmail().withMessage('Invalid mail'),
@@ -28,6 +38,8 @@ router.get('/register', register);
 router.post('/login',validateLogin, postLogin);
 router.post('/register', validateRegister, postRegister);
 
+router.get('/user/modify/:id', modify);
+router.put('/user/confirm-modify/:id', confirmModify);
 
 router.get('/profile', (req,res) => {
     res.render(path.join(__dirname,'../views/userprofile'),{

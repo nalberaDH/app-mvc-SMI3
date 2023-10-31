@@ -1,18 +1,16 @@
-const path = require('path');
+const db = require('../../database/models');
 
 
 const deleteProduct = (req,res) => {
     const { id } = req.params;
 
-    /*fs.writeFile(productsPath,data, (error) => {
-        if(error){
-            res.send(`Error: ${error}`);
-        }else{
-            res.redirect('/products');
+    db.Products.destroy({
+        where:{
+            id
         }
-    });*/
+    }).then(() => res.send('Producto eliminado'))
+      .catch((error) => res.send(error));
     
-    //res.send(newArrayProducts);
 }
 
 module.exports = deleteProduct;

@@ -35,6 +35,6 @@ router.get('/new-product', isUser, formNewProduct);
 router.post('/products', uploadImgProduct.single('image'), validationsForm,postNewProduct);
 
 router.put('/product/:id/edit', confirmModifyProduct)
-router.delete('/product/delete/:id', isUser, deleteProduct);
+router.delete('/product/delete/:id', deleteProduct);
 
 module.exports = router;

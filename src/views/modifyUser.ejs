@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificacion de usuario</title>
+</head>
+<body>
+    <h3>Editar usuario: <%= user.email%></h3>
+    <form action="/user/confirm-modify/<%= user.id%>?_method=PUT" method="POST">
+        <label for="">First Name</label>
+        <input type="text" name="firstName" id="" value="<%= user.firstName %>">
+        <label for="">Last Name</label>
+        <input type="text" name="lastName" id="" value="<%= user.lastName %>">
+        <label for="">Phone</label>
+        <input type="text" name="phone" id="" value="<%= user.phone %>">
+        <button type="submit">Confirm</button>
+    </form>
+</body>
+</html>
