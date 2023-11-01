@@ -11,6 +11,7 @@
     <% for(let i=0; i < allProducts.length; i++){%>
         <div class="products_container">
             <h3>Title: <%= allProducts[i].title %></h3>
+            <h4>Category: <%= allProducts[i].category.description %></h4>
             <%if(allProducts[i].image.includes('http')){%>
                 <img src="<%= allProducts[i].image %>" alt="img" width="300px" height="300px">
             <%}else{%>

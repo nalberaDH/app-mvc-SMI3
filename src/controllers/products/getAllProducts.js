@@ -12,15 +12,19 @@ const getAllProducts = (req,res) => {
         db.Products.findAll({
             where:{
                 title: {[Op.like]: `%${req.query.title}%`}
-            }
+            },
+            include: [
+                { association: 'category' }
+            ]
         }).then((products) => {
-            if(!products.length){
+            // if(!products.length){
 
-            }
+            // }
+            //res.send(products);
             res.render(dir,{'allProducts': products});
         }).catch((error) => res.send(error));
     }else{
-        db.Products.findAll().then((products) => {
+        db.Products.findAll({include: [{association: 'category'}]}).then((products) => {
             //res.send(products);//resolve
             res.render(dir,{'allProducts': products});
         }).catch((error) => res.send(error));//rechazo    
